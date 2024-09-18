@@ -4,9 +4,11 @@ import App from "./App.jsx";
 import "./index.css";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import RootLayout from "./components/layouts/RootLayout.jsx";
-import Login from "./pages/auth/Login.jsx";
+import Register from "./pages/auth/Register.jsx";
 import Product from "./pages/product/Product.jsx";
 import ProductDetail from "./pages/productDetail/ProductDetail.jsx";
+import Login from "./pages/auth/Login.jsx";
+import Verify from "./pages/auth/Verify.jsx";
 
 const router = createBrowserRouter([
   {
@@ -28,8 +30,16 @@ const router = createBrowserRouter([
     ]
   },
   {
+    path: "/register",
+    element: <Register />
+  },
+  {
     path: "/login",
     element: <Login />
+  },
+  {
+    path: "/verify-email",
+    element: <Verify />
   }
 ]);
 
