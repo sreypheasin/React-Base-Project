@@ -1,13 +1,25 @@
 import ProductCard from "./components/cards/ProductCard";
+import { getAccessToken } from "./lib/secureLocalStorage";
 import { getAllProducts } from "./services/product/productAction";
 import { useEffect, useState } from "react";
+import { getUserProfile } from "./services/user/userAction";
 
 export default function App() {
   const [products, setProducts] = useState([]); // products =[]
   const [loading, setLoading] = useState(false);
 
   console.log("products", products);
+  // get user profile
+  useEffect(() => {
+    async function fetchUserProfile() {
+      const accessToken = getAccessToken();
+      console.log("accessToken", accessToken);
+      const userData = await getUserProfile(accessToken);
+      console.log("userData", userData);
+    }
 
+    fetchUserProfile();
+  }, []);
   useEffect(() => {
     async function fetchAllProducts() {
       setLoading(true);
@@ -23,6 +35,7 @@ export default function App() {
         <h1 className="text-blue-800 font-bold text-4xl text-center mt-5">
           List Products
         </h1>
+        <img src="javascript.png" alt="" />
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-5">
           {loading && (
             <img src="https://cdn.pixabay.com/animation/2023/10/08/03/19/03-19-26-213_512.gif" />

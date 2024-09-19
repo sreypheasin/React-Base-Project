@@ -9,6 +9,7 @@ import Product from "./pages/product/Product.jsx";
 import ProductDetail from "./pages/productDetail/ProductDetail.jsx";
 import Login from "./pages/auth/Login.jsx";
 import Verify from "./pages/auth/Verify.jsx";
+import Job from "./pages/job/Job.jsx";
 
 const router = createBrowserRouter([
   {
@@ -26,6 +27,10 @@ const router = createBrowserRouter([
       {
         path: "/products/:id",
         element: <ProductDetail />
+      },
+      {
+        path: "/jobs",
+        element: <Job />
       }
     ]
   },

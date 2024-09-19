@@ -57,7 +57,9 @@ export function NavbarComponent() {
         <NavbarLink as={Link} to="/products">
           Product
         </NavbarLink>
-        <NavbarLink href="#">Services</NavbarLink>
+        <NavbarLink as={Link} to="/jobs">
+          Jobs
+        </NavbarLink>
         <NavbarLink href="#">Pricing</NavbarLink>
         <NavbarLink href="#">Contact</NavbarLink>
       </NavbarCollapse>
